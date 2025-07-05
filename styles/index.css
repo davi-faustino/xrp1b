@@ -1,0 +1,60 @@
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom right, #0f172a, #1e293b);
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+header {
+  text-align: center;
+  padding: 40px 20px;
+}
+header h1 {
+  font-size: 2.5rem;
+  color: #facc15;
+}
+.hero {
+  text-align: center;
+  padding: 20px;
+}
+.hero img {
+  max-width: 180px;
+}
+section {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+h2 {
+  color: #38bdf8;
+}
+.tokenomics,
+.roadmap {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 20px;
+}
+.button-group {
+  text-align: center;
+  margin: 40px 0;
+}
+.button-group a {
+  display: inline-block;
+  margin: 10px;
+  padding: 12px 24px;
+  background-color: #3b82f6;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+.button-group a:hover {
+  background-color: #2563eb;
+}
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #0f172a;
+  color: #94a3b8;
+}
