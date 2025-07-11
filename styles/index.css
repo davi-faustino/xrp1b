@@ -58,6 +58,19 @@ header {
 .btn:hover {
   background-color: #f4c542e6;
 }
+#campaign {
+  margin-top: 15px;
+  padding: 8px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  background-color: #f4c542;
+  color: #1a237e;
+  text-decoration: none;
+}
+#campaign:hover {
+  background-color: #f4c542e6;
+}
 main {
   padding: 2rem;
 }

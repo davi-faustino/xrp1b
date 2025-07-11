@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>XRP1B Burn Campaign</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        background: linear-gradient(#05051a, #1b174d);
+        color: white;
+        text-align: center;
+      }
+      header {
+        background: linear-gradient(90deg, #ff3cac, #784ba0);
+        padding: 1rem;
+        text-align: center;
+      }
+      header h1 {
+        margin: 0;
+        font-size: 2rem;
+      }
+      section {
+        padding: 2rem;
+        max-width: 800px;
+        margin: auto;
+      }
+      .progress-container {
+        background: #1c1f30;
+        border-radius: 12px;
+        padding: 1rem;
+        margin-top: 1rem;
+      }
+      .step {
+        margin-bottom: 1.5rem;
+      }
+      .step h3 {
+        margin: 0.3rem 0;
+      }
+      .completed {
+        color: #00ff9f;
+      }
+      .pending {
+        color: #ff8c42;
+      }
+      .progress-bar {
+        width: 100%;
+        background-color: #2f3545;
+        border-radius: 10px;
+        overflow: hidden;
+        margin-bottom: 2rem;
+        height: 24px;
+      }
+      .progress-fill {
+        height: 100%;
+        background: linear-gradient(90deg, #ff3cac, #784ba0);
+        width: 0%;
+        text-align: center;
+        color: #fff;
+        line-height: 24px;
+        transition: width 2s ease-in-out;
+      }
+      footer {
+        background-color: #0a0a23;
+        padding: 2rem;
+        font-size: 0.9rem;
+      }
+      a {
+        color: #00c3ff;
+        text-decoration: none;
+      }
+      .wallet-info {
+        margin-top: 2rem;
+        padding: 1rem;
+        background-color: #1c1f30;
+        border-radius: 12px;
+        color: #ffffff;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>XRP1B BURN CAMPAIGN</h1>
+      <p>🔥 Burn Progress on the Road to 1,000 Holders 🔥</p>
+    </header>
+    <section>
+      <p id="holdersCount">Current Holders: <strong>Loading...</strong></p>
+      <p>Total Tokens to Burn: <strong>50,000,000 XRP1B</strong></p>
+
+      <div class="progress-bar">
+        <div class="progress-fill" id="progressFill">0%</div>
+      </div>
+
+      <div class="progress-container">
+        <div class="step completed">
+          <h3>✅ 400 Holders</h3>
+          <p>
+            🔥 2,500,000 XRP1B burned -
+            <a href="https://bscscan.com/tx/PASTE_TX_HASH_500" target="_blank"
+              >View Tx</a
+            >
+          </p>
+        </div>
+        <div class="step pending">
+          <h3>🚧 500 Holders</h3>
+          <p>🔥 2,500,000 XRP1B burned</p>
+        </div>
+        <div class="step pending">
+          <h3>🚧 600 Holders</h3>
+          <p>🔥 5,000,000 XRP1B to burn</p>
+        </div>
+        <div class="step pending">
+          <h3>🚧 700 Holders</h3>
+          <p>🔥 10,000,000 XRP1B to burn</p>
+        </div>
+        <div class="step pending">
+          <h3>🚧 800 Holders</h3>
+          <p>🔥 10,000,000 XRP1B to burn</p>
+        </div>
+        <div class="step pending">
+          <h3>🚧 900 Holders</h3>
+          <p>🔥 10,000,000 XRP1B to burn</p>
+        </div>
+        <div class="step pending">
+          <h3>🚧 1,000 Holders</h3>
+          <p>🔥 10,000,000 XRP1B to burn</p>
+        </div>
+      </div>
+
+      <div class="wallet-info">
+        <p>
+          📊 Burn Wallet Balance: <strong id="walletBalance">Loading...</strong>
+        </p>
+        <p>Wallet: <code>0x7c475ff3294c0CeE94828DcbD23692B59a714764</code></p>
+      </div>
+
+      <p style="margin-top: 2rem">
+        Support the campaign and buy XRP1B now:
+        <a
+          href="https://pancakeswap.finance/swap?outputCurrency=0x5a0b00a7dd843b35cc57b6b93688003e9efd4444"
+          target="_blank"
+        >
+          PancakeSwap
+        </a>
+      </p>
+    </section>
+    <footer>
+      <p>&copy; 2025 XRP1B. All rights reserved. | To the Moon Together 🚀🦄</p>
+    </footer>
+
+    <script>
+      async function fetchHolders() {
+        try {
+          const totalHolders = 416;
+          document.getElementById(
+            "holdersCount"
+          ).innerHTML = `Current Holders: <strong>${totalHolders}</strong>`;
+
+          const progress = Math.min((totalHolders / 1000) * 100, 100);
+          const progressFill = document.getElementById("progressFill");
+          progressFill.style.width = progress + "%";
+          progressFill.textContent = progress.toFixed(1) + "%";
+        } catch (error) {
+          console.error("Failed to fetch holders:", error);
+        }
+      }
+
+      async function fetchWalletBalance() {
+        try {
+          const wallet = "0x7c475ff3294c0CeE94828DcbD23692B59a714764";
+          const contract = "0x5a0b00a7dd843b35cc57b6b93688003e9efd4444";
+          const url = `https://api.etherscan.io/v2/api?chainid=56&module=account&action=tokenbalance&contractaddress=${contract}&address=${wallet}&tag=latest&apikey=8UEMGII9D75I22E4KC79948KWCDM2IJ29C`;
+          const response = await fetch(url);
+          const data = await response.json();
+
+          const value = parseFloat(data.result) / 1e18;
+          const formatted = value.toLocaleString("en-US", {
+            maximumFractionDigits: 2,
+          });
+          document.getElementById(
+            "walletBalance"
+          ).innerHTML = `${formatted} XRP1B`;
+        } catch (error) {
+          console.error("Failed to fetch wallet balance:", error);
+        }
+      }
+
+      fetchHolders();
+      fetchWalletBalance();
+    </script>
+  </body>
+</html>
