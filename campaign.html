@@ -159,12 +159,12 @@
     <script>
       async function fetchHolders() {
         try {
-          const totalHolders = 484;
+          const totalHolders = 487;
           document.getElementById(
             "holdersCount"
           ).innerHTML = `Current Holders: <strong>${totalHolders}</strong>`;
 
-          const progress = Math.min((totalHolders / 1000) * 100, 100);
+          const progress = Math.min((totalHolders / 500) * 100, 100);
           const progressFill = document.getElementById("progressFill");
           progressFill.style.width = progress + "%";
           progressFill.textContent = progress.toFixed(1) + "%";
