@@ -53,7 +53,6 @@
         display: flex;
         align-items: center;
         margin-bottom: 2rem;
-        margin-top: 1rem;
       }
       .progress-bar {
         width: 100%;
@@ -100,12 +99,26 @@
       <p id="holdersCount">Current Holders: <strong>Loading...</strong></p>
       <p>Total Tokens to Burn: <strong>50,000,000 XRP1B</strong></p>
 
-      <div id="progress-bar-container">
-        <div>400</div>
-        <div class="progress-bar">
-          <div class="progress-fill" id="progressFill">0%</div>
+      <div style="margin-top: 1rem">
+        <div>Total burn progress</div>
+        <div id="progress-bar-container">
+          <div>0M</div>
+          <div class="progress-bar">
+            <div class="progress-fill" id="progressBurnFill">0%</div>
+          </div>
+          <div>50M</div>
         </div>
-        <div>500</div>
+      </div>
+
+      <div style="margin-top: 1rem">
+        <div>Next goal holders</div>
+        <div id="progress-bar-container">
+          <div>400</div>
+          <div class="progress-bar">
+            <div class="progress-fill" id="progressFill">0%</div>
+          </div>
+          <div>500</div>
+        </div>
       </div>
 
       <div class="progress-container">
@@ -199,6 +212,11 @@
           document.getElementById(
             "walletBalance"
           ).innerHTML = `${formatted} XRP1B`;
+
+          const progress = Math.min(((50000000 - value) / 50000000) * 100, 100);
+          const progressFill = document.getElementById("progressBurnFill");
+          progressFill.style.width = progress + "%";
+          progressFill.textContent = progress.toFixed(1) + "%";
         } catch (error) {
           console.error("Failed to fetch wallet balance:", error);
         }
