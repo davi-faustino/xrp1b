@@ -49,13 +49,20 @@
       .pending {
         color: #ff8c42;
       }
+      #progress-bar-container {
+        display: flex;
+        align-items: center;
+        margin-bottom: 2rem;
+        margin-top: 1rem;
+      }
       .progress-bar {
         width: 100%;
         background-color: #2f3545;
         border-radius: 10px;
         overflow: hidden;
-        margin-bottom: 2rem;
         height: 24px;
+        margin-left: 5px;
+        margin-right: 5px;
       }
       .progress-fill {
         height: 100%;
@@ -93,8 +100,12 @@
       <p id="holdersCount">Current Holders: <strong>Loading...</strong></p>
       <p>Total Tokens to Burn: <strong>50,000,000 XRP1B</strong></p>
 
-      <div class="progress-bar">
-        <div class="progress-fill" id="progressFill">0%</div>
+      <div id="progress-bar-container">
+        <div>400</div>
+        <div class="progress-bar">
+          <div class="progress-fill" id="progressFill">0%</div>
+        </div>
+        <div>500</div>
       </div>
 
       <div class="progress-container">
