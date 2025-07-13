@@ -113,11 +113,11 @@
       <div style="margin-top: 1rem">
         <div>Next goal holders</div>
         <div id="progress-bar-container">
-          <div>400</div>
+          <div>500</div>
           <div class="progress-bar">
             <div class="progress-fill" id="progressFill">0%</div>
           </div>
-          <div>500</div>
+          <div>600</div>
         </div>
       </div>
 
@@ -133,9 +133,16 @@
             >
           </p>
         </div>
-        <div class="step pending">
-          <h3>🚧 500 Holders</h3>
-          <p>🔥 2,500,000 XRP1B burned</p>
+        <div class="step completed">
+          <h3>✅ 500 Holders</h3>
+          <p>
+            🔥 2,500,000 XRP1B burned -
+            <a
+              href="https://bscscan.com/tx/0x4de0b84a35404b6c299144c8d23abb477bcd70927a15d668a4bb56ccb0b9604d"
+              target="_blank"
+              >View Tx</a
+            >
+          </p>
         </div>
         <div class="step pending">
           <h3>🚧 600 Holders</h3>
@@ -183,12 +190,24 @@
     <script>
       async function fetchHolders() {
         try {
-          const totalHolders = 499;
+          const currentHolders = 504;
+          const goalStart = 500;
+          const goalEnd = 600;
+          const holdersToReachGoal = goalEnd - goalStart;
+
           document.getElementById(
             "holdersCount"
-          ).innerHTML = `Current Holders: <strong>${totalHolders}</strong>`;
+          ).innerHTML = `Current Holders: <strong>${currentHolders}</strong>`;
 
-          const progress = Math.min((totalHolders / 500) * 100, 100);
+          let progress = 0;
+          if (currentHolders >= goalStart) {
+            const holdersAchievedInGoal = currentHolders - goalStart;
+            progress = Math.min(
+              (holdersAchievedInGoal / holdersToReachGoal) * 100,
+              100
+            );
+          }
+
           const progressFill = document.getElementById("progressFill");
           progressFill.style.width = progress + "%";
           progressFill.textContent = progress.toFixed(1) + "%";
