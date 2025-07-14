@@ -24,7 +24,7 @@ header {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(1px);
 }
 #container-header h1 {
   font-size: 3rem;
